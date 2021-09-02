@@ -13,8 +13,5 @@ function myFunction() {
 
 <p id="demo">A Paragraph.</p>
 
-<button type="button" onclick="myFunction()">Try it</button>
 
-</body>
-</html> 
 
