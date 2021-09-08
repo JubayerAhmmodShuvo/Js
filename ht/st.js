@@ -3,4 +3,4 @@ console.log("I am second line");
 
 document.write("Javascript is connected");
 
-prompt("Enter Your name: ");
+//prompt("Enter Your name: ");
