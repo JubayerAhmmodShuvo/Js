@@ -15,14 +15,14 @@ function updateTotalField(totalFieldId, amount) {
     totalElement.innerText = previousTotal + amount;
 }
 
-function updateBalance(depositAmount, isAdd) {
+function updateBalance(amount, isAdd) {
     const balanceTotal = document.getElementById('balance-total');
     const balanceTotalText = balanceTotal.innerText;
     const previousBalanceText = parseFloat(balanceTotalText);
     if (isAdd == true) {
-        balanceTotal.innerText = previousBalanceText + depositAmount;
+        balanceTotal.innerText = previousBalanceText + amount;
     } else {
-        balanceTotal.innerText = previousBalanceText - depositAmount;
+        balanceTotal.innerText = previousBalanceText - amount;
     }
 }
 
