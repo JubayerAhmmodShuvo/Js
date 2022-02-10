@@ -15,10 +15,18 @@ function updateTotalField(totalFieldId, amount) {
     totalElement.innerText = previousTotal + amount;
 }
 
-function updateBalance(amount, isAdd) {
+function getCurrentBalance() {
     const balanceTotal = document.getElementById('balance-total');
     const balanceTotalText = balanceTotal.innerText;
     const previousBalanceText = parseFloat(balanceTotalText);
+    return previousBalanceText;
+}
+
+function updateBalance(amount, isAdd) {
+    const balanceTotal = document.getElementById('balance-total');
+    /*     const balanceTotalText = balanceTotal.innerText;
+        const previousBalanceText = parseFloat(balanceTotalText); */
+    const previousBalanceText = getCurrentBalance();
     if (isAdd == true) {
         balanceTotal.innerText = previousBalanceText + amount;
     } else {
@@ -38,13 +46,19 @@ document.getElementById('deposit-button').addEventListener('click', function() {
      const depositTotalText = depositTotal.innerText;
      const previousTotalText = parseFloat(depositTotalText);
      depositTotal.innerText = previousTotalText + depositAmount; */
-    updateTotalField('deposit-total', depositAmount);
+
     //update balance input
     /*   const balanceTotal = document.getElementById('balance-total');
       const balanceTotalText = balanceTotal.innerText;
       const previousBalanceText = parseFloat(balanceTotalText);
       balanceTotal.innerText = previousBalanceText + depositAmount; */
-    updateBalance(depositAmount, true);
+    if (depositAmount > 0) {
+        updateTotalField('deposit-total', depositAmount);
+        updateBalance(depositAmount, true);
+
+    } else {
+        alert('Please enter a valid amount');
+    }
 
 
 });
@@ -62,7 +76,7 @@ document.getElementById('withdraw-button').addEventListener('click', function() 
     const previousWithdrawText = parseFloat(withdrawTotalText);
     withdrawTotal.innerText = previousWithdrawText + withdrawAmount; */
 
-    updateTotalField('withdraw-total', withdrawAmount);
+
 
     //update balance input
     /*     const balanceTotal = document.getElementById('balance-total');
@@ -70,5 +84,11 @@ document.getElementById('withdraw-button').addEventListener('click', function() 
         const previousBalanceText = parseFloat(balanceTotalText);
         balanceTotal.innerText = previousBalanceText - withdrawAmount;
      */
-    updateBalance(withdrawAmount, false);
+    const currentBalance = getCurrentBalance();
+    if (withdrawAmount > 0 && currentBalance > 0) {
+        updateTotalField('withdraw-total', withdrawAmount);
+        updateBalance(withdrawAmount, false);
+    } else {
+        alert('Please enter a valid amount');
+    }
 });
