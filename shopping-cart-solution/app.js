@@ -42,16 +42,8 @@ document.getElementById('phone-minus').addEventListener('click', function() {
 });
 //handle case increase decrese event
 document.getElementById('case-plus').addEventListener('click', function() {
-    /* const caseInput = document.getElementById('case-number');
-    const caseNumber = caseInput.value;
-    caseInput.value = parseInt(caseNumber) + 1; */
     updateProductNumber('case', 59, true);
 });
 document.getElementById('case-minus').addEventListener('click', function() {
-    /*  const caseInput = document.getElementById('case-number');
-     const caseNumber = caseInput.value; */
     updateProductNumber('case', 59, false);
-
-
-
 });
